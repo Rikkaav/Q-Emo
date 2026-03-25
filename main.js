@@ -1,3 +1,28 @@
+// Logic for Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let isMenuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+            mobileMenu.classList.add('opacity-100', 'translate-y-0');
+        } else {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+            mobileMenu.classList.remove('opacity-100', 'translate-y-0');
+        }
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+            isMenuOpen = false;
+        });
+    });
+
 // Inisialisasi Ikon Lucide
 lucide.createIcons();
 
